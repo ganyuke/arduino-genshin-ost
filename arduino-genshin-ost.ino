@@ -14,7 +14,6 @@ void toggle(){
   currentButtonState = digitalRead(SW);
   if (currentButtonState != lastButtonState){ 
     if (currentButtonState == LOW) { buttonPushCounter++;}
-    // delay(50); 
   }
   lastButtonState = currentButtonState;
   if (buttonPushCounter % 2 == 0) { halt = true; } 
@@ -60,11 +59,12 @@ void loop() {
     detectJoystick();
     toggle();
    switch (pinSelected){
-      case 0:  // Unfortunately, too much memory if I use all of these!!
+      case 0:
         digitalWrite(13, HIGH);
         digitalWrite(12, LOW);
         digitalWrite(8, LOW);
         if (halt){break;}
+        digitalWrite(13, LOW);
         musicHandler(hm_melody, hm_noteDurations, hm_totalNotes); // You can configure what song plays from here.
         break;
       case 1:
@@ -72,6 +72,7 @@ void loop() {
         digitalWrite(12, HIGH);
         digitalWrite(8, LOW);
         if (halt){break;}
+        digitalWrite(12, LOW);
         musicHandler(wr_melody, wr_noteDurations, wr_totalNotes);
         break;
       case 2:
@@ -79,6 +80,7 @@ void loop() {
         digitalWrite(12, LOW);
         digitalWrite(8, HIGH);
         if (halt){break;}
+        digitalWrite(8, LOW);
         musicHandler(mt_melody, mt_noteDurations, mt_totalNotes);
         break;
     }
