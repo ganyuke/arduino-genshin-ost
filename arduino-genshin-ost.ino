@@ -4,6 +4,7 @@
 #include "windingRiver.h"
 #include "tenderStrength.h"
 #include "herMajesty.h"
+#include "moonlikeSmile.h"
 
 bool halt = true; // Prevent running immediately after plugging in.
 bool lastButtonState;
@@ -112,7 +113,7 @@ void loop() {
         digitalWrite(8, HIGH);
         if (halt){break;}
         digitalWrite(8, LOW);
-        musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
+        musicHandler(ms_melody, ms_noteDurations, ms_totalNotes);
         break;
     }
 }

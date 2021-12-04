@@ -34,25 +34,25 @@ void detectJoystick() {
     if (mapY >= 500){
       ++pageNumber;
       Serial.print(pageNumber);
-      Serial.print(F("Page Increasing!"));
+      Serial.print(F("- Page Increasing!"));
       Serial.println();
     }
     else if (mapY <= -500){
       --pageNumber;
       Serial.print(pageNumber);
-      Serial.print(F("Page Decreasing!"));
+      Serial.print(F("- Page Decreasing!"));
       Serial.println();
     }
     if (pageNumber > 1){
       pageNumber = 0;
       Serial.print(pageNumber);
-      Serial.print(F("Page Resetting!"));
+      Serial.print(F("- Page Resetting!"));
       Serial.println();
     }
     else if (pageNumber < 0){
       pageNumber = 1;
       Serial.print(pageNumber);
-      Serial.print(F("Page Resetting!"));
+      Serial.print(F("- Page Resetting!"));
       Serial.println();
     }
 
@@ -60,25 +60,25 @@ void detectJoystick() {
     if (mapX <= -500){
       ++pinSelected;
       Serial.print(pinSelected + (pageNumber*3));
-      Serial.print(F("Increasing!"));
+      Serial.print(F("- Pin Increasing!"));
       Serial.println();
     }
     else if (mapX >= 500){
       --pinSelected;
       Serial.print(pinSelected + (pageNumber*3));
-      Serial.print(F("Decreasing!"));
+      Serial.print(F("- Pin Decreasing!"));
       Serial.println();
     }
     if (pinSelected > 2){
       pinSelected = 0;
       Serial.print(pinSelected + (pageNumber*3));
-      Serial.print(F("Resetting!"));
+      Serial.print(F("- Pin Resetting!"));
       Serial.println();
     }
     else if (pinSelected < 0){
       pinSelected = 2;
       Serial.print(pinSelected + (pageNumber*3));
-      Serial.print(F("Resetting!"));
+      Serial.print(F("- Pin Resetting!"));
       Serial.println();
     }
   }
