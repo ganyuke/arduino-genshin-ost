@@ -52,14 +52,16 @@ void setup() {
   pinMode(13, OUTPUT);
   pinMode(12, OUTPUT);
   pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
   initJoystick();
 }
  
 void loop() {
     detectJoystick();
     toggle();
-   switch (pinSelected){
+   switch (pinSelected + (pageNumber*3)){
       case 0:
+        digitalWrite(7, LOW);
         digitalWrite(13, HIGH);
         digitalWrite(12, LOW);
         digitalWrite(8, LOW);
@@ -68,6 +70,7 @@ void loop() {
         musicHandler(hm_melody, hm_noteDurations, hm_totalNotes); // You can configure what song plays from here.
         break;
       case 1:
+        digitalWrite(7, LOW);
         digitalWrite(13, LOW);
         digitalWrite(12, HIGH);
         digitalWrite(8, LOW);
@@ -76,12 +79,40 @@ void loop() {
         musicHandler(wr_melody, wr_noteDurations, wr_totalNotes);
         break;
       case 2:
+        digitalWrite(7, LOW);
         digitalWrite(13, LOW);
         digitalWrite(12, LOW);
         digitalWrite(8, HIGH);
         if (halt){break;}
         digitalWrite(8, LOW);
         musicHandler(mt_melody, mt_noteDurations, mt_totalNotes);
+        break;
+      case 3:
+        digitalWrite(7, HIGH);
+        digitalWrite(13, HIGH);
+        digitalWrite(12, LOW);
+        digitalWrite(8, LOW);
+        if (halt){break;}
+        digitalWrite(13, LOW);
+        musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
+        break;
+      case 4:
+        digitalWrite(7, HIGH);
+        digitalWrite(13, LOW);
+        digitalWrite(12, HIGH);
+        digitalWrite(8, LOW);
+        if (halt){break;}
+        digitalWrite(12, LOW);
+        musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
+        break;
+      case 5:
+        digitalWrite(7, HIGH);
+        digitalWrite(13, LOW);
+        digitalWrite(12, LOW);
+        digitalWrite(8, HIGH);
+        if (halt){break;}
+        digitalWrite(8, LOW);
+        musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
         break;
     }
 }
