@@ -26,9 +26,9 @@ https://flat.io/score/605cf3442ebc14578f0a8c22-dawn-winery-theme
   
 *****************************/
 
-const int bfdatw_totalNotes = 120;
+const int dwt_totalNotes = 120;
 
-const int bfdatw_melody[] PROGMEM = {
+const int dwt_melody[] PROGMEM = {
   123,
   370,
   247,
@@ -151,7 +151,7 @@ const int bfdatw_melody[] PROGMEM = {
   587
 };
 
-const double bfdatw_noteDurations[] PROGMEM = {
+const double dwt_noteDurations[] PROGMEM = {
   2,
   4,
   4,
