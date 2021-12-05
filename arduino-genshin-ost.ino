@@ -47,7 +47,7 @@ void toneHandler(const int pin, const int* melody, const double noteDuration) {
   noTone(pin);
 }
 
-void musicHandler(const int* melody, const double* noteDurations, const int totalNotes, const double tempo) {
+void musicHandler(const int* melody, const double* noteDurations, const int totalNotes, const double tempo = 1.3) {
   for (int thisNote = 0; thisNote < totalNotes; thisNote++) {
     toggle();
     if (halt) {
@@ -92,7 +92,7 @@ void loop() {
         break;
       }
       digitalWrite(13, LOW);
-      musicHandler(hm_melody, hm_noteDurations, hm_totalNotes, 1.3); // You can configure what song plays from here.
+      musicHandler(hm_melody, hm_noteDurations, hm_totalNotes); // You can configure what song plays from here.
       break;
     case 1:
       digitalWrite(7, LOW);
@@ -101,7 +101,7 @@ void loop() {
         break;
       }
       digitalWrite(12, LOW);
-      musicHandler(wr_melody, wr_noteDurations, wr_totalNotes, 1.3);
+      musicHandler(wr_melody, wr_noteDurations, wr_totalNotes);
       break;
     case 2:
       digitalWrite(7, LOW);
@@ -110,7 +110,7 @@ void loop() {
         break;
       }
       digitalWrite(8, LOW);
-      musicHandler(mt_melody, mt_noteDurations, mt_totalNotes, 1.3);
+      musicHandler(mt_melody, mt_noteDurations, mt_totalNotes);
       break;
     case 3:
       digitalWrite(7, HIGH);
@@ -119,7 +119,7 @@ void loop() {
         break;
       }
       digitalWrite(13, LOW);
-      musicHandler(ts_melody, ts_noteDurations, ts_totalNotes, 1.3);
+      musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
       break;
     case 4:
       digitalWrite(7, HIGH);
@@ -137,7 +137,7 @@ void loop() {
         break;
       }
       digitalWrite(8, LOW);
-      musicHandler(ms_melody, ms_noteDurations, ms_totalNotes, 1.3);
+      musicHandler(ms_melody, ms_noteDurations, ms_totalNotes);
       break;
   }
 }

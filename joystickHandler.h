@@ -18,12 +18,12 @@ int pageNumber = 0;
 void initJoystick() {
   pinMode(VRx, INPUT);
   pinMode(VRy, INPUT);
-  pinMode(SW, INPUT_PULLUP); 
+  pinMode(SW, INPUT_PULLUP);
 }
 
 void detectJoystick() {
   int currentTime = millis();
-  if ((currentTime-lastTime)>=interval){
+  if ((currentTime - lastTime) >= interval) {
     lastTime = currentTime;
     xPosition = analogRead(VRx);
     yPosition = analogRead(VRy);
@@ -31,25 +31,25 @@ void detectJoystick() {
     mapY = map(yPosition, 0, 1023, -512, 512);
 
     // Check what page to switch the three songs.
-    if (mapY >= 500){
+    if (mapY >= 500) {
       ++pageNumber;
       Serial.print(pageNumber);
       Serial.print(F("- Page Increasing!"));
       Serial.println();
     }
-    else if (mapY <= -500){
+    else if (mapY <= -500) {
       --pageNumber;
       Serial.print(pageNumber);
       Serial.print(F("- Page Decreasing!"));
       Serial.println();
     }
-    if (pageNumber > 1){
+    if (pageNumber > 1) {
       pageNumber = 0;
       Serial.print(pageNumber);
       Serial.print(F("- Page Resetting!"));
       Serial.println();
     }
-    else if (pageNumber < 0){
+    else if (pageNumber < 0) {
       pageNumber = 1;
       Serial.print(pageNumber);
       Serial.print(F("- Page Resetting!"));
@@ -57,27 +57,27 @@ void detectJoystick() {
     }
 
     // Checks what pin is being hovered over.
-    if (mapX <= -500){
+    if (mapX <= -500) {
       ++pinSelected;
-      Serial.print(pinSelected + (pageNumber*3));
+      Serial.print(pinSelected + (pageNumber * 3));
       Serial.print(F("- Pin Increasing!"));
       Serial.println();
     }
-    else if (mapX >= 500){
+    else if (mapX >= 500) {
       --pinSelected;
-      Serial.print(pinSelected + (pageNumber*3));
+      Serial.print(pinSelected + (pageNumber * 3));
       Serial.print(F("- Pin Decreasing!"));
       Serial.println();
     }
-    if (pinSelected > 2){
+    if (pinSelected > 2) {
       pinSelected = 0;
-      Serial.print(pinSelected + (pageNumber*3));
+      Serial.print(pinSelected + (pageNumber * 3));
       Serial.print(F("- Pin Resetting!"));
       Serial.println();
     }
-    else if (pinSelected < 0){
+    else if (pinSelected < 0) {
       pinSelected = 2;
-      Serial.print(pinSelected + (pageNumber*3));
+      Serial.print(pinSelected + (pageNumber * 3));
       Serial.print(F("- Pin Resetting!"));
       Serial.println();
     }
