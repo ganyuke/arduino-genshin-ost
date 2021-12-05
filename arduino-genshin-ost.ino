@@ -5,6 +5,7 @@
 #include "tenderStrength.h"
 #include "herMajesty.h"
 #include "moonlikeSmile.h"
+#include "dawnWineryTheme.h"
 
 bool halt = true; // Prevent running immediately after plugging in.
 bool lastButtonState;
@@ -23,15 +24,15 @@ void toggle(){
 
 void toneHandler(const int pin, const int* melody, const double noteDuration){
   tone(pin, melody, noteDuration);
-  delay(noteDuration*1.3);
+  delay(noteDuration);
   noTone(pin);
 }
 
-void musicHandler(const int* melody, const double* noteDurations, const int totalNotes){
+void musicHandler(const int* melody, const double* noteDurations, const int totalNotes, const double tempo){
   for (int thisNote = 0; thisNote < totalNotes; thisNote++) {
     toggle();
     if (halt){break;} // Do not play song if stopped.
-    int noteDuration = 1000 / pgm_read_float_near(&noteDurations[thisNote]);
+    int noteDuration = (1000 / pgm_read_float_near(&noteDurations[thisNote])*tempo);
     if(pgm_read_word_near(&melody[thisNote]) >= 494){
       toneHandler(13, pgm_read_word_near(&melody[thisNote]),noteDuration);
     }
@@ -68,7 +69,7 @@ void loop() {
         digitalWrite(8, LOW);
         if (halt){break;}
         digitalWrite(13, LOW);
-        musicHandler(hm_melody, hm_noteDurations, hm_totalNotes); // You can configure what song plays from here.
+        musicHandler(hm_melody, hm_noteDurations, hm_totalNotes, 1.3); // You can configure what song plays from here.
         break;
       case 1:
         digitalWrite(7, LOW);
@@ -77,7 +78,7 @@ void loop() {
         digitalWrite(8, LOW);
         if (halt){break;}
         digitalWrite(12, LOW);
-        musicHandler(wr_melody, wr_noteDurations, wr_totalNotes);
+        musicHandler(wr_melody, wr_noteDurations, wr_totalNotes, 1.3);
         break;
       case 2:
         digitalWrite(7, LOW);
@@ -86,7 +87,7 @@ void loop() {
         digitalWrite(8, HIGH);
         if (halt){break;}
         digitalWrite(8, LOW);
-        musicHandler(mt_melody, mt_noteDurations, mt_totalNotes);
+        musicHandler(mt_melody, mt_noteDurations, mt_totalNotes, 1.3);
         break;
       case 3:
         digitalWrite(7, HIGH);
@@ -95,7 +96,7 @@ void loop() {
         digitalWrite(8, LOW);
         if (halt){break;}
         digitalWrite(13, LOW);
-        musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
+        musicHandler(ts_melody, ts_noteDurations, ts_totalNotes, 1.3);
         break;
       case 4:
         digitalWrite(7, HIGH);
@@ -104,7 +105,7 @@ void loop() {
         digitalWrite(8, LOW);
         if (halt){break;}
         digitalWrite(12, LOW);
-        musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
+        musicHandler(dwt_melody, dwt_noteDurations, dwt_totalNotes, 1);
         break;
       case 5:
         digitalWrite(7, HIGH);
@@ -113,7 +114,7 @@ void loop() {
         digitalWrite(8, HIGH);
         if (halt){break;}
         digitalWrite(8, LOW);
-        musicHandler(ms_melody, ms_noteDurations, ms_totalNotes);
+        musicHandler(ms_melody, ms_noteDurations, ms_totalNotes, 1.3);
         break;
     }
 }
