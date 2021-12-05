@@ -97,7 +97,7 @@
 
 // Don't be lazy like me and use the shorthand ones... terrible idea.
 
-// #define NOTE_B0  31 // already exists
+// #define NOTE_B0  31 // something someting, compiler says already exists
 #define C1  33
 #define CS1 35
 #define D1  37

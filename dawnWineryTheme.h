@@ -19,7 +19,7 @@ https://flat.io/score/605cf3442ebc14578f0a8c22-dawn-winery-theme
   Converted from MIDI using:
   https://arduinomidi.netlify.app/
 
-  Formatting is garbage again because this
+  Formatting is garbage because this
   wasn't translated by hand. Regex expressions
   are a godsend when dealing with this many
   lines.

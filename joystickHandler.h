@@ -1,7 +1,7 @@
 // Pins
-int VRx = A2;
-int VRy = A3;
-int SW = 2;
+const int VRx = A2;
+const int VRy = A3;
+const int SW = 2;
 
 // Joystick Variables
 int xPosition = 0;
@@ -30,7 +30,7 @@ void detectJoystick() {
     mapX = map(xPosition, 0, 1023, -512, 512);
     mapY = map(yPosition, 0, 1023, -512, 512);
 
-    // Check what page to switches the three songs.
+    // Check what page to switch the three songs.
     if (mapY >= 500){
       ++pageNumber;
       Serial.print(pageNumber);
@@ -82,5 +82,4 @@ void detectJoystick() {
       Serial.println();
     }
   }
-  delay(100);
 }

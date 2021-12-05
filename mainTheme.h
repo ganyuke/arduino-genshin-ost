@@ -9,7 +9,7 @@ https://flat.io/score/6060e656436b36585ea23a1d-genshin-impact-main-theme
 
 const int mt_totalNotes = 95;
 
-// I apologize ahead of time for this garbage formatting. This was the first MIDI file.
+// I apologize ahead of time for this garbage formatting. This was the first MIDI file I manually converted.
 
 const int mt_melody[] PROGMEM = {
   NOTE_C4,
