@@ -24,6 +24,12 @@ void ledOff(int exempt = 42) {
       digitalWrite(primaryLedPins[i], HIGH);
     }
   }
+  if (pageNumber == 1) {
+    digitalWrite(7, HIGH);
+  }
+  else {
+    digitalWrite(7, LOW);
+  }
 }
 
 void toggle() {
@@ -87,7 +93,6 @@ void loop() {
   toggle();
   switch (pinSelected + (pageNumber * 3)) {
     case 0:
-      digitalWrite(7, LOW);
       ledOff(13);
       if (halt) {
         break;
@@ -96,16 +101,14 @@ void loop() {
       musicHandler(hm_melody, hm_noteDurations, hm_totalNotes); // You can configure what song plays from here.
       break;
     case 1:
-      digitalWrite(7, LOW);
       ledOff(12);
       if (halt) {
         break;
       }
       digitalWrite(12, LOW);
-      musicHandler(raw_melody, raw_noteDurations, raw_totalNotes,1);
+      musicHandler(raw_melody, raw_noteDurations, raw_totalNotes,1.1);
       break;
     case 2:
-      digitalWrite(7, LOW);
       ledOff(8);
       if (halt) {
         break;
@@ -114,7 +117,6 @@ void loop() {
       musicHandler(mt_melody, mt_noteDurations, mt_totalNotes);
       break;
     case 3:
-      digitalWrite(7, HIGH);
       ledOff(13);
       if (halt) {
         break;
@@ -123,7 +125,6 @@ void loop() {
       musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
       break;
     case 4:
-      digitalWrite(7, HIGH);
       ledOff(12);
       if (halt) {
         break;
@@ -132,7 +133,6 @@ void loop() {
       musicHandler(dwt_melody, dwt_noteDurations, dwt_totalNotes, 1);
       break;
     case 5:
-      digitalWrite(7, HIGH);
       ledOff(8);
       if (halt) {
         break;
