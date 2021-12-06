@@ -6,6 +6,7 @@
 #include "herMajesty.h"
 #include "moonlikeSmile.h"
 #include "dawnWineryTheme.h"
+#include "rapidAsWildfires.h"
 
 const int primaryLedPins[] = {13, 12, 8};
 
@@ -101,7 +102,7 @@ void loop() {
         break;
       }
       digitalWrite(12, LOW);
-      musicHandler(wr_melody, wr_noteDurations, wr_totalNotes);
+      musicHandler(raw_melody, raw_noteDurations, raw_totalNotes,1);
       break;
     case 2:
       digitalWrite(7, LOW);
