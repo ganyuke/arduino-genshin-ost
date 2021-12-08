@@ -6,7 +6,7 @@ https://flat.io/score/59f243c5495f6f70ab7be0a5-deck-the-halls-flute
 
 *****************************/
 
-const int dth_totalNotes = 68;
+const int dth_totalNotes = 69;
 
 const int dth_melody[] PROGMEM = {
   392,
@@ -76,7 +76,8 @@ const int dth_melody[] PROGMEM = {
   349,
   330,
   294,
-  262
+  262,
+  NOTE_B3
 };
 
 const double dth_noteDurations[] PROGMEM = {
@@ -147,5 +148,5 @@ const double dth_noteDurations[] PROGMEM = {
   6,
   3,
   3,
-  1.5
+  3
 };

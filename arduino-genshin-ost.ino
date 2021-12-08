@@ -8,6 +8,8 @@
 #include "dawnWineryTheme.h"
 #include "rapidAsWildfires.h"
 #include "deckTheHalls.h"
+#include "joyToTheWorld.h"
+#include "carolOfTheBells_v2.h"
 
 const int primaryLedPins[] = {13, 12, 8};
 
@@ -119,7 +121,7 @@ void loop() {
         break;
       }
       digitalWrite(12, LOW);
-      musicHandler(raw_melody, raw_noteDurations, raw_totalNotes,1.1);
+      musicHandler(raw_melody, raw_noteDurations, raw_totalNotes, 1.1);
       break;
     case 2:
       ledOff(8);
@@ -167,7 +169,7 @@ void loop() {
         break;
       }
       digitalWrite(12, LOW);
-      musicHandler(hm_melody, ms_noteDurations, ms_totalNotes);
+      musicHandler(jttw_melody, jttw_noteDurations, jttw_totalNotes, 1, true);
       break;
     case 8:
       ledOff(8);
@@ -175,7 +177,7 @@ void loop() {
         break;
       }
       digitalWrite(8, LOW);
-      musicHandler(hm_melody, ms_noteDurations, ms_totalNotes);
+      musicHandler(cotb_melody, cotb_noteDurations, cotb_totalNotes, 0.9, true);
       break;
   }
 }
