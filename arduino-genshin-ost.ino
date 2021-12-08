@@ -7,6 +7,7 @@
 #include "moonlikeSmile.h"
 #include "dawnWineryTheme.h"
 #include "rapidAsWildfires.h"
+#include "deckTheHalls.h"
 
 const int primaryLedPins[] = {13, 12, 8};
 
@@ -29,6 +30,12 @@ void ledOff(int exempt = 42) {
   }
   else {
     digitalWrite(7, LOW);
+  }
+  if (pageNumber == 2) {
+    digitalWrite(11, HIGH);
+  }
+  else {
+    digitalWrite(11, LOW);
   }
 }
 
@@ -54,13 +61,19 @@ void toneHandler(const int pin, const int* melody, const double noteDuration) {
   noTone(pin);
 }
 
-void musicHandler(const int* melody, const double* noteDurations, const int totalNotes, const double tempo = 1.3) {
+void musicHandler(const int* melody, const double* noteDurations, const int totalNotes, const double tempo = 1.3, const bool specialDuration = false) {
   for (int thisNote = 0; thisNote < totalNotes; thisNote++) {
     toggle();
     if (halt) {
       break; // Do not play song if stopped.
     }
-    int noteDuration = (1000 / pgm_read_float_near(&noteDurations[thisNote]) * tempo);
+    int noteDuration;
+    if (specialDuration) {
+      noteDuration = (pgm_read_float_near(&noteDurations[thisNote]) * tempo);
+    }
+    else {
+      noteDuration = (1000 / pgm_read_float_near(&noteDurations[thisNote]) * tempo);
+    }
     if (pgm_read_word_near(&melody[thisNote]) >= 494) {
       toneHandler(13, pgm_read_word_near(&melody[thisNote]), noteDuration);
     }
@@ -139,6 +152,30 @@ void loop() {
       }
       digitalWrite(8, LOW);
       musicHandler(ms_melody, ms_noteDurations, ms_totalNotes);
+      break;
+    case 6:
+      ledOff(13);
+      if (halt) {
+        break;
+      }
+      digitalWrite(13, LOW);
+      musicHandler(dth_melody, dth_noteDurations, dth_totalNotes, 1);
+      break;
+    case 7:
+      ledOff(12);
+      if (halt) {
+        break;
+      }
+      digitalWrite(12, LOW);
+      musicHandler(hm_melody, ms_noteDurations, ms_totalNotes);
+      break;
+    case 8:
+      ledOff(8);
+      if (halt) {
+        break;
+      }
+      digitalWrite(8, LOW);
+      musicHandler(hm_melody, ms_noteDurations, ms_totalNotes);
       break;
   }
 }

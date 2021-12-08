@@ -14,6 +14,7 @@ int interval = 200;
 int lastTime;
 int pinSelected = 0;
 int pageNumber = 0;
+const int maxPageNumber = 2;
 
 void initJoystick() {
   pinMode(VRx, INPUT);
@@ -43,14 +44,14 @@ void detectJoystick() {
       Serial.print(F("- Page Decreasing!"));
       Serial.println();
     }
-    if (pageNumber > 1) {
+    if (pageNumber > maxPageNumber) {
       pageNumber = 0;
       Serial.print(pageNumber);
       Serial.print(F("- Page Resetting!"));
       Serial.println();
     }
     else if (pageNumber < 0) {
-      pageNumber = 1;
+      pageNumber = maxPageNumber;
       Serial.print(pageNumber);
       Serial.print(F("- Page Resetting!"));
       Serial.println();
