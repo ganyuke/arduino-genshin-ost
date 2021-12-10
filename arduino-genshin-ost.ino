@@ -113,6 +113,7 @@ void loop() {
         break;
       }
       digitalWrite(13, LOW);
+      musicHandler(hl_melody, hl_noteDurations, hl_totalNotes);
       break;
     case 1:
       ledOff(12);
