@@ -3,7 +3,7 @@
 #include "mainTheme.h"
 #include "windingRiver.h"
 #include "tenderStrength.h"
-#include "herMajesty.h"
+#include "herLegacy.h"
 #include "moonlikeSmile.h"
 #include "dawnWineryTheme.h"
 #include "rapidAsWildfires.h"
@@ -113,7 +113,6 @@ void loop() {
         break;
       }
       digitalWrite(13, LOW);
-      musicHandler(hm_melody, hm_noteDurations, hm_totalNotes); // You can configure what song plays from here.
       break;
     case 1:
       ledOff(12);

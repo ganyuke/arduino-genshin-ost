@@ -7,9 +7,9 @@ https://flat.io/score/6120d78e89d0ba0012990d19-genshin-impact-kamisato-ayaka-the
 
 *****************************/
 
-const int hm_totalNotes = 155;
+const int hl_totalNotes = 155;
 
-const int hm_melody[] PROGMEM = {
+const int hl_melody[] PROGMEM = {
   B3, FS4, E4, FS4, NOTE_A4, B4, E4, FS4,
   B3, FS4, E4, FS4, NOTE_A4, B4, E4, FS4,
   B3, FS4, E4, FS4, NOTE_A4, B4, E4, FS4,
@@ -30,7 +30,7 @@ const int hm_melody[] PROGMEM = {
   D5, CS5, B4, NOTE_A4, B4, NOTE_A4, B4, FS4, CS5, D5, NOTE_A5
 };
 
-const double hm_noteDurations[] PROGMEM = {
+const double hl_noteDurations[] PROGMEM = {
   4, 4, 4, 4, 4, 4, 4, 4,
   4, 4, 4, 4, 4, 4, 4, 4,
   4, 4, 4, 4, 4, 4, 4, 4,
