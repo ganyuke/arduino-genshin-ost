@@ -121,7 +121,7 @@ void loop() {
         break;
       }
       digitalWrite(12, LOW);
-      musicHandler(raw_melody, raw_noteDurations, raw_totalNotes, 1.1);
+      musicHandler(raw_melody, raw_noteDurations, raw_totalNotes, 1.3, true);
       break;
     case 2:
       ledOff(8);
