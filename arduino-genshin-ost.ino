@@ -10,6 +10,7 @@
 #include "deckTheHalls.h"
 #include "joyToTheWorld.h"
 #include "carolOfTheBells_v2.h"
+#include "rexIncognito.h"
 
 const int primaryLedPins[] = {13, 12, 8};
 
@@ -137,7 +138,7 @@ void loop() {
         break;
       }
       digitalWrite(13, LOW);
-      musicHandler(ts_melody, ts_noteDurations, ts_totalNotes);
+      musicHandler(ri_melody, ri_noteDurations, ri_totalNotes, 1, true);
       break;
     case 4:
       ledOff(12);
